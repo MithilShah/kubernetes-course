@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-static-website
+spec:
+  selector: 
+    matchLabels:
+      app: static-website
+  replicas: 2
+  template: 
+    metadata:
+      labels:
+        app: static-website
+    spec:
+      containers:
+      - name: static-website
+        image: kubernetes-static-website:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
