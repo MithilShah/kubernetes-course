@@ -12,9 +12,15 @@ spec:
       labels:
         app: static-website
     spec:
+      volumes:
+      - name: htdocs
+        emptyDir: {}
       containers:
       - name: static-website
         image: kubernetes-static-website:latest
+        volumeMounts:
+        - name: htdocs
+          mountPath: /usr/local/apache2/htdocs/
         imagePullPolicy: Never
         ports:
         - containerPort: 80
