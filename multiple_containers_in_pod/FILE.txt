@@ -1,8 +1,0 @@
-    echo "<HTML>"
-    echo "<BODY>"
-    echo "Kubernetes multiple containers demo"
-	date +"+DATE: %Y-%m-%d%nTIME: %H:%M:%S"
-    echo "</BODY>"
-    echo "</HTML>"
-    sleep 5s
-

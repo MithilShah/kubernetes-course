@@ -1,15 +1,15 @@
 #!/bin/bash
-# Recommend syntax for setting an infinite while loop
+
+cd /usr/local/apache2/htdocs/
 while :
 do
-    cat > /usr/local/apache2/htdocs/index.html << EOF
-    echo "<HTML>"
-    echo "<BODY>"
-    echo "Kubernetes multiple containers demo"
-	date +"+DATE: %Y-%m-%d%nTIME: %H:%M:%S"
-    echo "</BODY>"
-    echo "</HTML>"
-    sleep 5s
+   
+    echo "<HTML>" > index.html
+    echo "<BODY>" >> index.html
+    echo "Kubernetes multiple containers demo" >> index.html
+	date +"+DATE: %Y-%m-%d%nTIME: %H:%M:%S" >> index.html
+    echo "</BODY>" >> index.html
+    echo "</HTML>" >> index.html
 
-EOF
+sleep 5s
 done
