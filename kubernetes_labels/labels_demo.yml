@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubernetes-static-website-canary-digital
+  labels:
+     app.kubernetes.io/name: kubernetes-static-website
+     stage: canary
+     owner: digital
+spec: 
+  containers:
+    - name: kubernetes-static-website-canary-digital
+      image: kubernetes-static-website:latest
+      imagePullPolicy: Never
+      ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubernetes-static-website-production-analytics
+  labels:
+     app.kubernetes.io/name: kubernetes-static-website
+     stage: production
+     owner: analytics
+spec:
+  containers:
+    - name: kubernetes-static-website-productions-analytics
+      image: kubernetes-static-website:latest
+      imagePullPolicy: Never
+      ports:
+        - containerPort: 80  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-website-service
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 30500
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: kubernetes-static-website
+    owner: digital
+    stage: canary

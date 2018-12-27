@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: static-website-prod-analytics-replicaset
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kubernetes-static-website
+    matchExpressions:
+      -  key: stage
+         operator: In
+         values: 
+           - production
+           - canary
+      -  key: owner
+         operator: NotIn
+         values: 
+           - digital
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: kubernetes-static-website
+        stage: canary
+        owner: analytics
+    spec:
+      containers:
+      - name: kubernetes-static-website    
+        image: kubernetes-static-website:latest
+        imagePullPolicy: Never
