@@ -1,9 +1,9 @@
 apiVersion: apps/v1
-kind: Deployment 
+kind: Deployment
 metadata:
   name: spring-restful-api
-spec: 
-  selector: 
+spec:
+  selector:
     matchLabels: 
       app.kubernetes.io/name: spring-restful-api
       layer: mid-tier
@@ -14,7 +14,7 @@ spec:
         app.kubernetes.io/name: spring-restful-api
         layer: mid-tier
     spec:
-      containers: 
+      containers:
       - name: spring-restful-api
         image: mithilcshah/spring-restful-api:1.0
         imagePullPolicy: IfNotPresent
@@ -38,5 +38,3 @@ spec:
   selector:
     app.kubernetes.io/name: spring-restful-api
     layer: mid-tier
-
-         
