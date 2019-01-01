@@ -1,2 +1,0 @@
-The application {{ template "api.fullname" . }} has been successfully deployed. To access the service get the url using
-curl $(minikube.exe --service {{ template "api.fullname" . }}-service --url)/hello?name=[Write Name here]
