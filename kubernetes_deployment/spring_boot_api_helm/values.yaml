@@ -1,0 +1,10 @@
+deployment:
+  appLayer: "mid-tier"
+  replicas: 1
+  imageId: "mithilcshah/spring-restful-api"
+  imageVersion: "1.0"
+  pullPolicy: "IfNotPresent"
+service:
+  appLayer: "mid-tier"
+  nodePort: 30510
+    
