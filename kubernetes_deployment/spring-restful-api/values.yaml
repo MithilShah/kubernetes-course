@@ -1,0 +1,18 @@
+# configuration for the deployment
+deployment:
+  # value for the label 'Layer'
+  appLayer: "mid-tier"
+  # Number of replicas
+  replicas: 1
+  # Docker image Id containing the restful API.
+  imageId: "mithilcshah/spring-restful-api"
+  # Version of the docker image
+  imageVersion: "1.0"
+  # Get the image from docker hub if its not present in the Kubernetes docker engine.
+  pullPolicy: "IfNotPresent"
+# Configuration for the service 
+service:
+  # value for the label 'Layer'
+  appLayer: "mid-tier"
+  # port on which the service can be accessed from outside the cluster and on any node IP.
+  nodePort: 30510

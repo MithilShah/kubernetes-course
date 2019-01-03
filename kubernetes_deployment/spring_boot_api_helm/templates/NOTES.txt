@@ -1,5 +1,0 @@
-The application {{ template "api.fullname" . }} has been successfully deployed. To access the service get the url using
-curl $(minikube.exe service {{ template "api.fullname" . }}-service --url)/hello?name=[Write Name here]
-
-To scale the application change the number of replicates in values.yaml and run
-helm upgrade  {{ template "api.fullname" . }} ./spring_boot_api_helm/

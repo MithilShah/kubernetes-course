@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: {{ template "api.name" . }}-service
     layer:  {{ .Values.service.appLayer }}
-spec:
+spec: 
   type: NodePort
   ports:
   - nodePort: {{ .Values.service.nodePort }}
@@ -15,4 +15,5 @@ spec:
   selector:
     app.kubernetes.io/name: {{ template "api.name" . }}
     layer: {{ .Values.service.appLayer }}
+
 

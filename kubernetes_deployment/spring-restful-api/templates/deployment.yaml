@@ -20,3 +20,4 @@ spec:
         imagePullPolicy: {{ .Values.deployment.pullPolicy }}
         ports:
         - containerPort: 8080
+
