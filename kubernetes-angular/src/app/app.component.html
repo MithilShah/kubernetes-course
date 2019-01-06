@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <form role="form" (ngSubmit)="onSubmit(helloForm)" [formGroup]="helloForm">
+    <fieldset>
+       <span>Type your name here: </span>
+       <input type="text" name="name" class="form-control" formControlName="name">
+       <input type="submit">
+    </fieldset>
+
+  </form>
+  <div>
+    <span>Output : </span>
+  </div>
+  <div>
+    <span>{{ message }}</span>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
