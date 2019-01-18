@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,7 +25,9 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit({ value }: { value: HelloName }) {
-    return this.http.request('get', 'http://localhost:8080/hello?name=' + value.name, { responseType: 'text' }).
+    var host = "spring-restful-api-service.default.svc.cluster.local";
+    var port = 8080;
+    return this.http.request('get', 'http://' + host+':'+port+'/hello?name=' + value.name, { responseType: 'text' }).
       subscribe(output => {
         console.log(output)
         this.message = "Message from backend : " + output;

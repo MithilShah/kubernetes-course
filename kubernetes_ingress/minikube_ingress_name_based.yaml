@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: minikube-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: static.xmlunit.org
+    http:
+      paths:
+      - backend:
+          serviceName: static-website-service
+          servicePort: 80
+  - host: spring.xmlunit.org
+    http:
+      paths:
+      - backend:
+          serviceName: spring-restful-api-service
+          servicePort: 8080
