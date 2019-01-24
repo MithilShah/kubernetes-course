@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-static-website
+spec: # DeploymentSpec - Specification of the desired behavior of the Deployment.
+  selector: #Label selector for pods. Existing ReplicaSets whose pods are selected by this 
+            # will be the ones affected by this deployment.
+    matchLabels:
+      app: static-website
+  replicas: 2
+  template: # PodTemplateSpec- Template describes the pods that will be created.
+    metadata:
+      labels:
+        app: static-website
+    spec: # PodSpec - Specification of the desired behavior of the pod. 
+      containers:  # List of containers belonging to the pod. 
+      - name: static-website
+        image: kubernetes-static-website:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-website-service
+  labels:
+    app: static-website-service
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 30500
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: static-website
