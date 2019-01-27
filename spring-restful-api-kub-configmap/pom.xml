@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.studytrails</groupId>
 	<artifactId>kub-spring-config-demo</artifactId>
-	<version>1</version>
+	<version>1.0</version>
 	<name>Kubernetes Spring Boot Configmap</name>
 	<description>Kubernetes Config with spring boot demo</description>
 
