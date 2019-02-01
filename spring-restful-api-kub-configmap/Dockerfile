@@ -1,4 +1,4 @@
 FROM openjdk:8-jre-alpine
-COPY target/spring-boot-config-demo-1.0.jar /opt/spring-boot-config-demo-1.0.jar
+COPY target/kub-spring-config-demo-1.0.jar /opt/kub-spring-config-demo-1.0.jar
 ENTRYPOINT ["/usr/bin/java"]
-CMD ["-jar", "/opt/spring-boot-config-demo-1.0.jar"]
+CMD ["-jar", "/opt/kub-spring-config-demo-1.0.jar"]
