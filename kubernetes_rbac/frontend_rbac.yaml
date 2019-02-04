@@ -1,0 +1,25 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: frontend
+  name: frontend-pods
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods"]
+  verbs: ["get", "watch", "list", "create"]
+
+---
+# This role binding allows "frontend user" to create pods in the "frontend" namespace.
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: frontend-pods
+  namespace: frontend
+subjects:
+- kind: User
+  name: frontend
+  apiGroup: ""
+roleRef:
+  kind: Role 
+  name: frontend-pods # this must match the name of the Role 
+  apiGroup: ""

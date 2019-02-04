@@ -8,5 +8,5 @@ spec:
   storageClassName: manual
   capacity:
     storage: 100Mi
-  hostPath:`
+  hostPath:
     path: /html

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubernetes-static-website-rbac
+  namespace: frontend
+spec: 
+  containers:  
+  - name: static-website
+    image: kubernetes-static-website:latest
+    imagePullPolicy: Never
+    ports:
+    - containerPort: 80
+
