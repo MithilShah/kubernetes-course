@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: log-cleaner
-  namespace: kube-system
   labels:
     app: log-cleaner
 spec:
@@ -18,5 +17,5 @@ spec:
       - name: log-cleaner
         image: debian
         command: ["/bin/sh"]
-        args: ["-c", "while true; do find /var/log/* -mtime +365 -exec rm {} \; sleep 10;done"]
+        args: ["-c", "while true; do echo hello; sleep 10;done"]
 
