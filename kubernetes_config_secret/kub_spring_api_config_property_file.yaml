@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-restful-api-kub-configmap
+  name: spring-restful-api-kub-configmap-file
 spec:
   selector:
     matchLabels: 
-      app.kubernetes.io/name: spring-restful-api-kub-configmap
+      app.kubernetes.io/name: spring-restful-api-kub-configmap-file
   replicas: 1
   template:
     metadata:
@@ -13,8 +13,8 @@ spec:
         app.kubernetes.io/name: spring-restful-api-kub-configmap-file
     spec:
       containers:
-      - name: spring-restful-api-kub-configmap
-        image: mithilcshah/spring-restful-api-kub-configmap:1.0
+      - name: spring-restful-api-kub-configmap-file
+        image: mithilcshah/spring-restful-api-kub-configmap:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -38,7 +38,7 @@ kind: Service
 metadata:
   name: spring-restful-api-service
   labels:
-    app.kubernetes.io/name: spring-restful-api-kub-configmap
+    app.kubernetes.io/name: spring-restful-api-kub-configmap-file
 spec:
   type: NodePort
   ports:
@@ -47,4 +47,4 @@ spec:
     targetPort: 8080
     protocol: TCP
   selector:
-    app.kubernetes.io/name: spring-restful-api-kub-configmap
+    app.kubernetes.io/name: spring-restful-api-kub-configmap-file

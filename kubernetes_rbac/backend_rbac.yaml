@@ -4,10 +4,9 @@ metadata:
   name: backend-deployments
   namespace: backend
 rules:
-- apiGroups: ["extensions"] # "" indicates the core API group
+- apiGroups: ["extensions"] 
   resources: ["deployments"]
   verbs: ["get", "watch", "list", "create"]
-
 ---
 # This role binding allows "backend" user to read and create pods in the "backend" namespace.
 kind: RoleBinding

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: spring-restful-api-kub-configmap
-        image: mithilcshah/spring-restful-api-kub-configmap:1.0
+        image: mithilcshah/spring-restful-api-kub-configmap:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
