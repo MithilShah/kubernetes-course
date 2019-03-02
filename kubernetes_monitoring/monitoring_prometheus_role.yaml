@@ -1,0 +1,34 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kubelet
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - nodes/stats
+  - nodes/metrics
+  - nodes/log
+  - nodes/spec
+  - nodes/proxy
+  verbs:
+  - create
+  - get
+  - update
+  - patch
+  - delete
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kubelet-api
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kubelet
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: kubelet-api
