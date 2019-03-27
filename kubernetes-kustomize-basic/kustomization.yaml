@@ -1,0 +1,17 @@
+resources:
+- nginx-deployment.yaml
+- nginx-service.yaml
+namespace: dev
+namePrefix: dev
+commonLabels:
+  owner: teamA
+commonAnnotations:
+  email: test@example.com
+configMapGenerator:
+- name: nginx.conf
+  files:
+  - config/nginx.conf
+- name: app.home
+  literals:
+  - APP_HOME=/opt/app/
+
